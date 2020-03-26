@@ -1,0 +1,4 @@
+**/.vs/
+**/obj/Docker/DOCKER_REGISTRY.cache
+**/obj/**
+**/bin/**
