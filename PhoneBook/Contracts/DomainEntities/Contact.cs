@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Identity;
 
 namespace Contracts.DomainEntities
 {
@@ -13,7 +12,8 @@ namespace Contracts.DomainEntities
         public string Name { get; set; }
         [Required]
         public DateTime BirthDate { get; set; }
+        [Required]
         public string Address { get; set; }
-        public List<ContactNumber> PhoneNumbers { get; set; }
+        public List<ContactNumber> ContactNumbers { get; set; }
     }
 }

@@ -7,6 +7,9 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 
 COPY ./PhoneBook PhoneBook
+COPY ./Contracts Contracts
+COPY ./Infrastructure Infrastructure
+COPY ./PhoneBook.Services PhoneBook.Services
 
 RUN dotnet restore "PhoneBook/PhoneBook.csproj"
 

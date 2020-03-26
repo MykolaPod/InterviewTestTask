@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Infrastructure;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using PhoneBook.Data;
+using PhoneBook.Data.SeedData;
 
 namespace PhoneBook
 {
@@ -13,7 +10,14 @@ namespace PhoneBook
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var host =CreateHostBuilder(args).Build();
+                
+            host.MigrateDbContext<ApplicationDbContext>((ctx, services) =>
+            {
+                 new ApplicationDbContextSeed(ctx).SeedAsync().Wait();
+            });
+                
+                host.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
