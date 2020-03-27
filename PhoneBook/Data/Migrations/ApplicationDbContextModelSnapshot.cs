@@ -52,6 +52,7 @@ namespace Data.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Number")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");

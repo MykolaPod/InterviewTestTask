@@ -9,6 +9,7 @@ using Contracts.Dto.Response;
 using Contracts.Dto.Response.Contact;
 using MediatR;
 using PhoneBook.Services.Abstract;
+using PhoneBook.Services.CQRSES.Commands;
 using PhoneBook.Services.CQRSES.Queries;
 
 namespace PhoneBook.Services
@@ -26,7 +27,6 @@ namespace PhoneBook.Services
         {
             var query = new GetContactsQuery(dto);
             var result = await _mediator.Send(query);
-
             return result;
         }
 
@@ -34,7 +34,13 @@ namespace PhoneBook.Services
         {
             var query = new GetContactsByIdQuery(id);
             var result = await _mediator.Send(query);
+            return result;
+        }
 
+        public async Task<ContactDetailsDto> CreateContact(ContactCreateDto dto)
+        {
+            var command = new CreateContactCommand(dto);
+            var result = await _mediator.Send(command);
             return result;
         }
     }

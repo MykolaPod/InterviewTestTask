@@ -25,7 +25,7 @@ namespace PhoneBook.Services.CQRSES.QueryHandlers
         {
             var result = await Context.Contacts
                 .Include(c => c.ContactNumbers)
-                .GetPagedResultOf<Contact, ContactDetailsDto>(request.Dto, Mapper);
+                .GetPagedResultOf<Contact, ContactDetailsDto>(request.Dto, Mapper, cancellationToken);
 
             return result;
 

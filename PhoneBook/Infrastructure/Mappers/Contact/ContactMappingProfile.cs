@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using AutoMapper;
 using Contracts.DomainEntities;
+using Contracts.Dto.Request.Contact;
 using Contracts.Dto.Response.Contact;
 
 namespace Infrastructure.Mappers.Contact
@@ -11,6 +12,9 @@ namespace Infrastructure.Mappers.Contact
         {
             CreateMap<ContactNumber, ContactNumberDetailsDto>();
             CreateMap<Contracts.DomainEntities.Contact, ContactDetailsDto>();
+
+            CreateMap<ContactNumberCreateDto, ContactNumber>();
+            CreateMap<ContactCreateDto, Contracts.DomainEntities.Contact>();
         }
     }
 }

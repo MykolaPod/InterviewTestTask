@@ -11,5 +11,6 @@ namespace PhoneBook.Services.Abstract
     {
         Task<PagedDto<ContactDetailsDto>> GetContacts(GetPagedItemsDto dto);
         Task<ContactDetailsDto> GetContactById(int id);
+        Task<ContactDetailsDto> CreateContact(ContactCreateDto dto);
     }
 }

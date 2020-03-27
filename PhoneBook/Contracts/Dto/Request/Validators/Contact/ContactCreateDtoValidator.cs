@@ -8,6 +8,9 @@ namespace Contracts.Dto.Request.Validators.Contact
         public ContactCreateDtoValidator()
         {
             RuleFor(dto => dto.Name).NotEmpty();
+            RuleFor(dto => dto.Address).NotEmpty();
+            RuleFor(dto => dto.BirthDate).NotEmpty();
+            RuleFor(dto => dto.ContactNumbers).NotEmpty();
         }
     }
 }

@@ -31,7 +31,7 @@ namespace Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Number = table.Column<string>(nullable: true),
+                    Number = table.Column<string>(nullable: false),
                     ContactId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>

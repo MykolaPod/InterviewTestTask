@@ -37,6 +37,12 @@ namespace PhoneBook.Controllers
             return Ok(result);
         }
 
+        [HttpPost("[action]")]
+        public async Task<IActionResult> CreateContact([FromBody] ContactCreateDto dto)
+        {
+            var result = await _contactService.CreateContact(dto);
 
+            return CreatedAtAction(nameof(CreateContact), result);
+        }
     }
 }

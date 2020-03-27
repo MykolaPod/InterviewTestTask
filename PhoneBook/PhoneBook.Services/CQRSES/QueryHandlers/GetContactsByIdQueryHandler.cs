@@ -19,7 +19,7 @@ namespace PhoneBook.Services.CQRSES.QueryHandlers
         {
             var result = await Context.Contacts
                 .Include(c => c.ContactNumbers)
-                .FirstOrDefaultAsync(c => c.Id == request.Id);
+                .FirstOrDefaultAsync(c => c.Id == request.Id, cancellationToken);
 
             return Mapper.Map<ContactDetailsDto>(result);
         }
