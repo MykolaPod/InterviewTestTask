@@ -29,5 +29,13 @@ namespace PhoneBook.Services
 
             return result;
         }
+
+        public async Task<ContactDetailsDto> GetContactById(int id)
+        {
+            var query = new GetContactsByIdQuery(id);
+            var result = await _mediator.Send(query);
+
+            return result;
+        }
     }
 }

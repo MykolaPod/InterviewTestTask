@@ -14,21 +14,18 @@ using PhoneBook.Services.CQRSES.Queries;
 
 namespace PhoneBook.Services.CQRSES.QueryHandlers
 {
-    public class GetContactsQueryHandler : IRequestHandler<GetContactsQuery, PagedDto<ContactDetailsDto>>
+    public class GetContactsQueryHandler : BaseHandler, IRequestHandler<GetContactsQuery, PagedDto<ContactDetailsDto>>
     {
-        private readonly ApplicationDbContext _context;
-        private readonly IMapper _mapper;
-        public GetContactsQueryHandler(ApplicationDbContext context, IMapper mapper)
+        
+        public GetContactsQueryHandler(ApplicationDbContext context, IMapper mapper) : base(context, mapper)
         {
-            _context = context ?? throw new ArgumentNullException(nameof(context));
-            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
+
         public async Task<PagedDto<ContactDetailsDto>> Handle(GetContactsQuery request, CancellationToken cancellationToken)
         {
-
-            var result = await _context.Contacts
+            var result = await Context.Contacts
                 .Include(c => c.ContactNumbers)
-                .GetPagedResultOf<Contact,ContactDetailsDto>(request.Dto, _mapper);
+                .GetPagedResultOf<Contact, ContactDetailsDto>(request.Dto, Mapper);
 
             return result;
 

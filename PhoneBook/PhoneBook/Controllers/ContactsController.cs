@@ -18,11 +18,25 @@ namespace PhoneBook.Controllers
         }
 
 
-        [HttpGet]
-        public async Task<IActionResult> Contacts([FromQuery] GetPagedItemsDto dto)
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetContacts([FromQuery] GetPagedItemsDto dto)
         {
             var result = await _contactService.GetContacts(dto);
             return Ok(result);
         }
+
+        [HttpGet("[action]/{id}")]
+        public async Task<IActionResult> GetContactsById([FromRoute] int id)
+        {
+            var result = await _contactService.GetContactById(id);
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+        }
+
+
     }
 }

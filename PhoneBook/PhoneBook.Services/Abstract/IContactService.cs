@@ -10,5 +10,6 @@ namespace PhoneBook.Services.Abstract
     public interface IContactService
     {
         Task<PagedDto<ContactDetailsDto>> GetContacts(GetPagedItemsDto dto);
+        Task<ContactDetailsDto> GetContactById(int id);
     }
 }
