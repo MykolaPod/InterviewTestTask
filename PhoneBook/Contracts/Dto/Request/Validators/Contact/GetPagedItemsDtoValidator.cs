@@ -1,5 +1,4 @@
-﻿using Contracts.Dto.Request.Contact;
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace Contracts.Dto.Request.Validators.Contact
 {

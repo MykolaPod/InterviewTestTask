@@ -26,5 +26,10 @@ namespace PhoneBook.Services
         {
             return _contactHub.Clients.All.SendAsync(nameof(ISignalRClient.ContactUpdatedEvent), contactDto, cancellationToken);
         }
+
+        public Task PublishContactDeletedEvent(ContactDetailsDto contactDto, CancellationToken cancellationToken)
+        {
+            return _contactHub.Clients.All.SendAsync(nameof(ISignalRClient.ContactDeletedEvent), contactDto, cancellationToken);
+        }
     }
 }

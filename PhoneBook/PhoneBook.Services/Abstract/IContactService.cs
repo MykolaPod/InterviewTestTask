@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Contracts.Dto.Request;
 using Contracts.Dto.Request.Contact;
 using Contracts.Dto.Response;
@@ -13,5 +12,6 @@ namespace PhoneBook.Services.Abstract
         Task<ContactDetailsDto> GetContactById(int id);
         Task<ContactDetailsDto> CreateContact(ContactCreateDto dto);
         Task<ContactDetailsDto> UpdateContact(ContactUpdateDto dto);
+        Task<ContactDetailsDto> DeleteContact(int id);
     }
 }

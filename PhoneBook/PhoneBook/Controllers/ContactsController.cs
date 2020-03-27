@@ -48,5 +48,13 @@ namespace PhoneBook.Controllers
             
             return Ok(result);
         }
+
+        [HttpDelete("[action]/{id}")]
+        public async Task<IActionResult> DeleteContact([FromRoute] int id)
+        {
+            var result = await _contactService.DeleteContact(id);
+
+            return NoContent();
+        }
     }
 }

@@ -7,5 +7,6 @@ namespace PhoneBook.Services.Abstract
     {
         Task ContactCreatedEvent(string dtoJson);
         Task ContactUpdatedEvent(string dtoJson);
+        Task ContactDeletedEvent(string dtoJson);
     }
 }

@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using AutoMapper;
-using Contracts.DomainEntities;
 using Contracts.Dto.Request;
 using Contracts.Dto.Request.Contact;
 using Contracts.Dto.Response;
@@ -47,6 +44,13 @@ namespace PhoneBook.Services
         public async Task<ContactDetailsDto> UpdateContact(ContactUpdateDto dto)
         {
             var command = new UpdateContactCommand(dto);
+            var result = await _mediator.Send(command);
+            return result;
+        }
+
+        public async Task<ContactDetailsDto> DeleteContact(int id)
+        {
+            var command = new DeleteContactCommand(id);
             var result = await _mediator.Send(command);
             return result;
         }

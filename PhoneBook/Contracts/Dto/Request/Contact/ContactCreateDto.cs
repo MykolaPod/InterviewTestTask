@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Contracts.DomainEntities;
-using Contracts.Dto.Response.Contact;
 
 namespace Contracts.Dto.Request.Contact
 {

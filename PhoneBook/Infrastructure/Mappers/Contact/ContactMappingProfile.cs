@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using AutoMapper;
+﻿using AutoMapper;
 using Contracts.DomainEntities;
 using Contracts.Dto.Request.Contact;
 using Contracts.Dto.Response.Contact;

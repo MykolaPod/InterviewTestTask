@@ -8,5 +8,6 @@ namespace PhoneBook.Services.Abstract
     {
         Task PublishContactCreatedEvent(ContactDetailsDto contactDto, CancellationToken cancellationToken);
         Task PublishContactUpdatedEvent(ContactDetailsDto notificationDto, CancellationToken cancellationToken);
+        Task PublishContactDeletedEvent(ContactDetailsDto notificationDto, CancellationToken cancellationToken);
     }
 }
