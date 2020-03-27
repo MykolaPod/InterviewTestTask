@@ -6,12 +6,13 @@ using Contracts.Dto.Response.Contact;
 using Data;
 using MediatR;
 using PhoneBook.Services.CQRSES.Commands;
+using PhoneBook.Services.CQRSES.Events;
 
 namespace PhoneBook.Services.CQRSES.CommandHandlers
 {
     public class CreateContactCommandHandler : BaseHandler, IRequestHandler<CreateContactCommand, ContactDetailsDto>
     {
-        public CreateContactCommandHandler(ApplicationDbContext context, IMapper mapper) : base(context, mapper)
+        public CreateContactCommandHandler(ApplicationDbContext context, IMapper mapper, IMediator mediator) : base(context, mapper, mediator)
         {
         }
 
@@ -19,10 +20,14 @@ namespace PhoneBook.Services.CQRSES.CommandHandlers
         {
             var contact = Mapper.Map<Contact>(request.Dto);
 
-            var result = await Context.Contacts.AddAsync(contact, cancellationToken);
-
+            var operationResult = await Context.Contacts.AddAsync(contact, cancellationToken);
             await Context.SaveChangesAsync(cancellationToken);
-            return Mapper.Map<ContactDetailsDto>(result.Entity);
+
+            var result = Mapper.Map<ContactDetailsDto>(operationResult.Entity);
+
+            _ = Mediator.Publish(new ContactCreatedEvent(result), cancellationToken);
+
+            return result;
         }
     }
 }

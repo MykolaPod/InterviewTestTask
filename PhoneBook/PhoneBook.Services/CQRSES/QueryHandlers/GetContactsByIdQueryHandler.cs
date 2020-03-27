@@ -11,7 +11,7 @@ namespace PhoneBook.Services.CQRSES.QueryHandlers
 {
     public class GetContactsByIdQueryHandler : BaseHandler, IRequestHandler<GetContactsByIdQuery, ContactDetailsDto>
     {
-        public GetContactsByIdQueryHandler(ApplicationDbContext context, IMapper mapper) : base(context, mapper)
+        public GetContactsByIdQueryHandler(ApplicationDbContext context, IMapper mapper, IMediator mediator) : base(context, mapper, mediator)
         {
         }
 

@@ -1,8 +1,10 @@
-﻿namespace PhoneBook.Services.Abstract
+﻿using System.Threading.Tasks;
+
+namespace PhoneBook.Services.Abstract
 {
 
     public interface ISignalRClient
     {
-        
+        Task ContactCreatedEvent(string dtoJson);
     }
 }
