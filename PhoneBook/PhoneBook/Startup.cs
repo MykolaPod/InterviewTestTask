@@ -6,6 +6,8 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Contracts.Dto.Request.Validators.Contact;
+using Data;
+using Data.Migrations;
 using FluentValidation.AspNetCore;
 using Infrastructure;
 using MediatR;
@@ -27,7 +29,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using PhoneBook.Controllers;
-using PhoneBook.Data;
 using PhoneBook.Services;
 using PhoneBook.Services.Abstract;
 using PhoneBook.Services.Hubs;
@@ -88,6 +89,7 @@ namespace PhoneBook
 
         private void RegisterDependencies(IServiceCollection services)
         {
+            services.AddScoped<IContactService, ContactService>();
             services.AddScoped<ISignalRTransmitterService, SignalRTransmitterService>();
             services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
         }
@@ -170,7 +172,7 @@ namespace PhoneBook
                 {
                     options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"), sqlOptions =>
                     {
-                        sqlOptions.MigrationsAssembly(typeof(Startup).GetTypeInfo().Assembly.GetName().Name);
+                        sqlOptions.MigrationsAssembly(typeof(Initial).GetTypeInfo().Assembly.GetName().Name);
                         sqlOptions.EnableRetryOnFailure(3, TimeSpan.FromSeconds(20), errorCodesToAdd: new List<string>());
                     });
                 });

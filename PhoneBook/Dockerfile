@@ -10,6 +10,7 @@ COPY ./PhoneBook PhoneBook
 COPY ./Contracts Contracts
 COPY ./Infrastructure Infrastructure
 COPY ./PhoneBook.Services PhoneBook.Services
+COPY ./Data Data
 
 RUN dotnet restore "PhoneBook/PhoneBook.csproj"
 

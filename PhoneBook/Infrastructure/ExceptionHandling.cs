@@ -16,7 +16,7 @@ namespace Infrastructure
             app.Run(async context =>
             {
                 var ex = context.Features.Get<IExceptionHandlerFeature>();
-
+                //logging errors
                 if (ex?.Error != null)
                 {
                     Console.WriteLine($"Error: {ex.Error.Message}");

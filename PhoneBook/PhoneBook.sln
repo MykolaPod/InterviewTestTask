@@ -7,11 +7,13 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneBook", "PhoneBook\PhoneBook.csproj", "{A7BDBE03-B045-4E3B-9311-52DF8D76626E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{7F7D08E2-C389-4BD7-AC55-89B8D83E7354}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "Contracts\Contracts.csproj", "{7F7D08E2-C389-4BD7-AC55-89B8D83E7354}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{A7923AF7-6741-4158-A9F9-0A7322B0EFEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{A7923AF7-6741-4158-A9F9-0A7322B0EFEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBook.Services", "PhoneBook.Services\PhoneBook.Services.csproj", "{264F496D-06B6-40AF-9783-C2B2AE9049B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneBook.Services", "PhoneBook.Services\PhoneBook.Services.csproj", "{264F496D-06B6-40AF-9783-C2B2AE9049B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{B9601BDD-AA46-483E-9B70-D2D7BF7B6BD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{264F496D-06B6-40AF-9783-C2B2AE9049B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{264F496D-06B6-40AF-9783-C2B2AE9049B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{264F496D-06B6-40AF-9783-C2B2AE9049B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9601BDD-AA46-483E-9B70-D2D7BF7B6BD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9601BDD-AA46-483E-9B70-D2D7BF7B6BD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9601BDD-AA46-483E-9B70-D2D7BF7B6BD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9601BDD-AA46-483E-9B70-D2D7BF7B6BD9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

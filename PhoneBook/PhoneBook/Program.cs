@@ -1,8 +1,8 @@
+using Data;
+using Data.SeedData;
 using Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
-using PhoneBook.Data;
-using PhoneBook.Data.SeedData;
 
 namespace PhoneBook
 {
@@ -10,7 +10,7 @@ namespace PhoneBook
     {
         public static void Main(string[] args)
         {
-            var host =CreateHostBuilder(args).Build();
+            var host = CreateHostBuilder(args).Build();
                 
             host.MigrateDbContext<ApplicationDbContext>((ctx, services) =>
             {

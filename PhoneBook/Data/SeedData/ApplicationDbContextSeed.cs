@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Contracts.DomainEntities;
 
-namespace PhoneBook.Data.SeedData
+namespace Data.SeedData
 {
     public class ApplicationDbContextSeed
     {

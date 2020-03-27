@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Contracts.Dto.Request;
+using Contracts.Dto.Request.Contact;
 using Microsoft.AspNetCore.Mvc;
 using PhoneBook.Services.Abstract;
 
@@ -17,9 +19,10 @@ namespace PhoneBook.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> Contacts()
+        public async Task<IActionResult> Contacts([FromQuery] GetPagedItemsDto dto)
         {
-            return Ok();
+            var result = await _contactService.GetContacts(dto);
+            return Ok(result);
         }
     }
 }

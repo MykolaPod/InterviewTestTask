@@ -1,7 +1,7 @@
 ﻿using Contracts.DomainEntities;
 using Microsoft.EntityFrameworkCore;
 
-namespace PhoneBook.Data
+namespace Data
 {
     public class ApplicationDbContext : DbContext
     {
