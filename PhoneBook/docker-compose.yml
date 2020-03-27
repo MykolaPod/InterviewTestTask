@@ -18,6 +18,6 @@ services:
     depends_on:      
       - db
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Release
     ports:
       - 8181:80
