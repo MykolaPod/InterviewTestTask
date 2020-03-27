@@ -15,6 +15,9 @@ namespace Infrastructure.Mappers.Contact
 
             CreateMap<ContactNumberCreateDto, ContactNumber>();
             CreateMap<ContactCreateDto, Contracts.DomainEntities.Contact>();
+
+            CreateMap<ContactNumberUpdateDto, ContactNumber>();
+            CreateMap<ContactUpdateDto, Contracts.DomainEntities.Contact>();
         }
     }
 }

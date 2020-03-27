@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Contracts.Dto.Response.Contact;
 using Data;
+using Infrastructure.Exceptions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using PhoneBook.Services.CQRSES.Queries;
@@ -20,6 +21,11 @@ namespace PhoneBook.Services.CQRSES.QueryHandlers
             var result = await Context.Contacts
                 .Include(c => c.ContactNumbers)
                 .FirstOrDefaultAsync(c => c.Id == request.Id, cancellationToken);
+
+            if (result == null)
+            {
+                throw new NotFoundEntityException();
+            }
 
             return Mapper.Map<ContactDetailsDto>(result);
         }

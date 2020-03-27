@@ -29,11 +29,7 @@ namespace PhoneBook.Controllers
         public async Task<IActionResult> GetContactsById([FromRoute] int id)
         {
             var result = await _contactService.GetContactById(id);
-            if (result == null)
-            {
-                return NotFound();
-            }
-
+           
             return Ok(result);
         }
 
@@ -43,6 +39,14 @@ namespace PhoneBook.Controllers
             var result = await _contactService.CreateContact(dto);
 
             return CreatedAtAction(nameof(CreateContact), result);
+        }
+
+        [HttpPut("[action]")]
+        public async Task<IActionResult> UpdateContact([FromBody] ContactUpdateDto dto)
+        {
+            var result = await _contactService.UpdateContact(dto);
+            
+            return Ok(result);
         }
     }
 }

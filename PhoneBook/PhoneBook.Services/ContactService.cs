@@ -43,5 +43,12 @@ namespace PhoneBook.Services
             var result = await _mediator.Send(command);
             return result;
         }
+
+        public async Task<ContactDetailsDto> UpdateContact(ContactUpdateDto dto)
+        {
+            var command = new UpdateContactCommand(dto);
+            var result = await _mediator.Send(command);
+            return result;
+        }
     }
 }
