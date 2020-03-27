@@ -55,6 +55,26 @@ namespace PhoneBook.Data.SeedData
                 }
             };
 
+            for (int i = 0; i < 30; i++)
+            {
+                var contactNumbers = new List<ContactNumber>();
+                for (int j = 0; j < 2; j++)
+                {
+                    contactNumbers.Add(new ContactNumber()
+                    {
+                        Number = $"{i}{j}00"
+                    });
+                }
+                
+                contacts.Add(new Contact()
+                {
+                    Name = $"Name {i}",
+                    Address = $"Address {i}",
+                    BirthDate = DateTime.UtcNow.AddYears(-1 * new Random().Next(18,40)).AddDays(-1 * new Random().Next(30, 70)).Date,
+                    ContactNumbers = contactNumbers,
+                });
+            }
+
             foreach (var contact in contacts)
             {
                 _context.Add(contact);
